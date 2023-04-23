@@ -1,8 +1,8 @@
-# Laboratorio de Microprocesadores - Trabajo Práctico Nº2
+# Laboratorio de Microprocesadores - Trabajo Práctico Nº3
 
 Autor: Díaz, Edgardo Rodrigo
 
-Trabajo Práctico Nº2: Compilación de proyectos en Lenguaje C
+Trabajo Práctico Nº3: Compilación de proyectos en Lenguaje C -  Usando Patrón de programación ADT (Abstract Data Type)
 
 **Descripción**: El programa principal se encarga de mostrar los datos del alumno por pantalla en formato **JSON**
 
