@@ -59,6 +59,14 @@ int main(void) {
         printf("Error al serializar\n");
     }
 
+    /*
+        alumno_t otro = CrearAlumno("Perez", "Pepe", 35532112);
+        if (Serializar(otro, cadena, sizeof(cadena)) >= 0) {
+            printf("%s\n", cadena);
+        } else {
+            printf("Error al serializar\n");
+        }
+    */
     return 0;
 }
 /* === End of documentation ==================================================================== */

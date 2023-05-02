@@ -35,13 +35,15 @@ SPDX-License-Identifier: MIT
 
 /* === Macros definitions ====================================================================== */
 
-#define FIELD_SIZE 50
+#define FIELD_SIZE    50
+#define MAX_INSTANCES 50
 
 /* === Private data type declarations ========================================================== */
 struct alumno_s {
     char apellido[FIELD_SIZE]; //!< Almacena el apellido del alumno
     char nombre[FIELD_SIZE];   //!< Almacena el nombre del alumno
     uint32_t documento;        //!< Almacena el documento del alumno
+    bool ocupado;              //!< Indica si el descriptor está en uso
 };
 /* === Private variable declarations =========================================================== */
 
@@ -50,6 +52,8 @@ struct alumno_s {
 static int SerializarCadena(const char * campo, const char * valor, char * cadena, int espacio);
 
 static int SerializarNumero(const char * campo, int valor, char * cadena, int espacio);
+
+alumno_t AlumnoOcupado(void);
 /* === Public variable definitions ============================================================= */
 
 /* === Private variable definitions ============================================================ */
@@ -64,16 +68,31 @@ static int SerializarNumero(const char * campo, int valor, char * cadena, int es
     return snprintf(cadena, espacio, "\"%s\":\"%d\",", campo, valor);
 }
 
+alumno_t AlumnoOcupado(void) {
+    alumno_t alumno = NULL;
+
+    static struct alumno_s instances[MAX_INSTANCES] = {};
+    for (int index = 0; index < MAX_INSTANCES; index++) {
+        if (!instances[index].ocupado) {
+            instances[index].ocupado = true;
+            alumno = &instances[index];
+            break;
+        }
+    }
+    return alumno;
+}
+
 /* === Public function implementation ========================================================== */
 
 alumno_t CrearAlumno(char * apellido, char * nombre, uint32_t documento) {
-    static struct alumno_s alumno;
+    alumno_t alumno = AlumnoOcupado();
 
-    strcpy(alumno.apellido, apellido);
-    strcpy(alumno.nombre, nombre);
-    alumno.documento = documento;
-
-    return &alumno;
+    if (alumno) {
+        strcpy(alumno->apellido, apellido);
+        strcpy(alumno->nombre, nombre);
+        alumno->documento = documento;
+    }
+    return alumno;
 }
 
 int Serializar(const struct alumno_s * alumno, char cadena[], int espacio) {
