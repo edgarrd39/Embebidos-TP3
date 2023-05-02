@@ -53,12 +53,12 @@ int main(void) {
     alumno_t yo = CrearAlumno("Diaz", "Edgardo", 12345321);
     char cadena[128];
 
-    /*    if (Serializar(yo, cadena, sizeof(cadena)) >= 0) {
-            printf("%s\n", cadena);
-        } else {
-            printf("Error al serializar\n");
-        }
-    */
+    if (Serializar(yo, cadena, sizeof(cadena)) >= 0) {
+        printf("%s\n", cadena);
+    } else {
+        printf("Error al serializar\n");
+    }
+
     return 0;
 }
 /* === End of documentation ==================================================================== */

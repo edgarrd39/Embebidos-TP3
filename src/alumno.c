@@ -67,8 +67,13 @@ static int SerializarNumero(const char * campo, int valor, char * cadena, int es
 /* === Public function implementation ========================================================== */
 
 alumno_t CrearAlumno(char * apellido, char * nombre, uint32_t documento) {
+    static struct alumno_s alumno;
 
-    return NULL;
+    strcpy(alumno.apellido, apellido);
+    strcpy(alumno.nombre, nombre);
+    alumno.documento = documento;
+
+    return &alumno;
 }
 
 int Serializar(const struct alumno_s * alumno, char cadena[], int espacio) {
