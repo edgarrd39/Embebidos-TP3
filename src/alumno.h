@@ -52,17 +52,24 @@ extern "C" {
 /* === Public data type declarations =========================================================== */
 
 //! Estructura para almacenar los datos de un alumno
-typedef struct alumno_s {
-    char apellido[FIELD_SIZE]; //!< Almacena el apellido del alumno
-    char nombre[FIELD_SIZE];   //!< Almacena el nombre del alumno
-    uint32_t documento;        //!< Almacena el documento del alumno
-} * alumno_t;
+typedef struct alumno_s * alumno_t;
 
 /* === Public variable declarations ============================================================ */
 
 /* === Public function declarations ============================================================ */
 /**
- * @brief Función àra serializar los datos de un alumno
+ * @brief Función Para crear Alumno
+ *
+ * @param apellido
+ * @param nombre
+ * @param documento
+ * @return alumno_t
+ */
+
+alumno_t CrearAlumno(char * apellido, char * nombre, uint32_t documento);
+
+/**
+ * @brief Función para serializar los datos de un alumno
  *
  * @param alumno Puntero a la estructura con los datos del alumno
  * @param cadena Puntero a la cadena de resultado

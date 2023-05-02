@@ -49,19 +49,16 @@ SPDX-License-Identifier: MIT
 /* === Public function implementation ========================================================== */
 
 int main(void) {
-    static const struct alumno_s yo = {
-        .apellido = "Díaz",
-        .nombre = "Edgardo",
-        .documento = 12345321,
-    };
+
+    alumno_t yo = CrearAlumno("Diaz", "Edgardo", 12345321);
     char cadena[128];
 
-    if (Serializar(&yo, cadena, sizeof(cadena)) >= 0) {
-        printf("%s\n", cadena);
-    } else {
-        printf("Error al serializar\n");
-    }
-
+    /*    if (Serializar(yo, cadena, sizeof(cadena)) >= 0) {
+            printf("%s\n", cadena);
+        } else {
+            printf("Error al serializar\n");
+        }
+    */
     return 0;
 }
 /* === End of documentation ==================================================================== */
