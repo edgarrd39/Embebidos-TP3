@@ -85,14 +85,25 @@ alumno_t AlumnoOcupado(void) {
 /* === Public function implementation ========================================================== */
 
 alumno_t CrearAlumno(char * apellido, char * nombre, uint32_t documento) {
-    alumno_t alumno = AlumnoOcupado();
 
-    if (alumno) {
+    if (!DINAMICO) {
+        alumno_t alumno = AlumnoOcupado();
+
+        if (alumno) {
+            printf("Se crea alumno de manera estatica\n");
+            strcpy(alumno->apellido, apellido);
+            strcpy(alumno->nombre, nombre);
+            alumno->documento = documento;
+        }
+        return alumno;
+    } else {
+        printf("Se crea alumno de manera dinamica\n");
+        alumno_t alumno = malloc(sizeof(struct alumno_s));
         strcpy(alumno->apellido, apellido);
         strcpy(alumno->nombre, nombre);
         alumno->documento = documento;
+        return alumno;
     }
-    return alumno;
 }
 
 int Serializar(const struct alumno_s * alumno, char cadena[], int espacio) {
