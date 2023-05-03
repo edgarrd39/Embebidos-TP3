@@ -19,10 +19,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 SPDX-License-Identifier: MIT
 *************************************************************************************************/
 
-/** \brief Segundo Trabajo Practico
+/** \brief Tercer Trabajo Practico
  **
  **
- ** \addtogroup tp2 TPN2
+ ** \addtogroup tp3 TPN3
  ** \brief El programa principal se encarga de mostrar los datos del alumno por pantalla en formato
  * JSON
  ** @{ */

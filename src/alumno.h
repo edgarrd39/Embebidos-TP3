@@ -49,12 +49,6 @@ extern "C" {
 
 #define FIELD_SIZE 50
 
-/**
- * @brief Define si la memoria será dinamica o estatica
- * Si DINAMICO = 1, entonces la memoria seleccionada es dinamica
- * Si DINAMICO = 0, entonces la memoria seleccionada es estatica
- *
- */
 //#define DINAMICO 0
 
 /* === Public data type declarations =========================================================== */
