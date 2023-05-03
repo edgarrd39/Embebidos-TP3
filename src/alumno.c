@@ -38,6 +38,10 @@ SPDX-License-Identifier: MIT
 #define FIELD_SIZE    50
 #define MAX_INSTANCES 50
 
+#ifndef DINAMICO
+#define DINAMICO 0
+#endif
+
 /* === Private data type declarations ========================================================== */
 struct alumno_s {
     char apellido[FIELD_SIZE]; //!< Almacena el apellido del alumno

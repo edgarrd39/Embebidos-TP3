@@ -55,7 +55,7 @@ extern "C" {
  * Si DINAMICO = 0, entonces la memoria seleccionada es estatica
  *
  */
-#define DINAMICO 0
+//#define DINAMICO 0
 
 /* === Public data type declarations =========================================================== */
 
@@ -68,9 +68,9 @@ typedef struct alumno_s * alumno_t;
 /**
  * @brief Función Para crear Alumno
  *
- * @param apellido
- * @param nombre
- * @param documento
+ * @param apellido Puntero al campo apellido de la estructura alumno_s
+ * @param nombre   Puntero al campo nombre de la estructura alumno_s
+ * @param documento Campo documento de la estructura alumno_s
  * @return alumno_t
  */
 

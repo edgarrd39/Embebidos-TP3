@@ -22,11 +22,11 @@ $(DOC_DIR): $(OUT_DIR)
 	mkdir -p $(DOC_DIR)	
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
-	gcc -c $< -o $@
+	gcc -c $< -o $@ $(TIPO)
 
 all: $(OBJ_FILES) $(BIN_DIR)
 	gcc -o $(BIN_DIR)/app.elf $(OBJ_FILES)
-		
+
 clean: $(OUT_DIR)
 	rm -r $(OUT_DIR)
 
